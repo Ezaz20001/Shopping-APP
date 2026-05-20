@@ -492,6 +492,14 @@ class _HomeScreenState extends State<HomeScreen> {
             tooltip: 'Sign out',
           ),
           IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const AboutPage()),
+            ),
+            tooltip: 'About',
+          ),
+          IconButton(
             icon: const Icon(Icons.admin_panel_settings),
             onPressed: () async {
               if (FirebaseAuth.instance.currentUser == null) {
@@ -769,6 +777,100 @@ class ProductDetails extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('About')),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Icon(Icons.shopping_bag, size: 80, color: Theme.of(context).primaryColor),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Shopping App',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Version 1.0.0',
+                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+            const Text(
+              'About',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Shopping App is a modern e-commerce mobile application built with Flutter and Firebase. '
+              'It provides a seamless shopping experience with real-time product listings, '
+              'user authentication, and a built-in shopping cart.',
+              style: TextStyle(fontSize: 15, height: 1.5),
+            ),
+            const SizedBox(height: 24),
+            const Text(
+              'Features',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            _featureItem(Icons.lock, 'Secure authentication with Firebase Auth'),
+            _featureItem(Icons.shopping_cart, 'Add products to cart and checkout'),
+            _featureItem(Icons.grid_view, 'Browse products in a grid catalog'),
+            _featureItem(Icons.admin_panel_settings, 'Admin panel for product management'),
+            _featureItem(Icons.security, 'App Check & Firestore security rules'),
+            _featureItem(Icons.verified_user, 'Email verification for new accounts'),
+            const SizedBox(height: 24),
+            const Text(
+              'Tech Stack',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              '• Flutter & Dart\n'
+              '• Firebase Authentication\n'
+              '• Cloud Firestore (NoSQL database)\n'
+              '• Firebase App Check\n'
+              '• Material Design',
+              style: TextStyle(fontSize: 15, height: 1.6),
+            ),
+            const SizedBox(height: 32),
+            Center(
+              child: Text(
+                'Made with Flutter',
+                style: TextStyle(color: Colors.grey[500], fontSize: 13),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _featureItem(IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, size: 22, color: Colors.blue),
+          const SizedBox(width: 12),
+          Expanded(child: Text(text, style: const TextStyle(fontSize: 15))),
+        ],
       ),
     );
   }
