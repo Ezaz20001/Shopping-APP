@@ -14,6 +14,13 @@ A Flutter-based online shopping app with Firebase Firestore integration for prod
 | **Admin Panel** | Create and delete products via Firestore |
 | **Firebase Integration** | Real-time Firestore database |
 
+## Screenshots
+
+| | | |
+|:---:|:---:|:---:|
+| ![Screenshot 1](screenshots/screenshot1.png) | ![Screenshot 2](screenshots/screenshot2.png) | ![Screenshot 3](screenshots/screenshot3.png) |
+| ![Screenshot 4](screenshots/screenshot4.png) | ![Screenshot 5](screenshots/screenshot5.png) | |
+
 ## Screens
 
 - **Sign In** — Entry point with email/password form and "Create account" link
